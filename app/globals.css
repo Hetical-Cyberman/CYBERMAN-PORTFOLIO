@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Syne:wght@400;500;600;700;800&display=swap');
+
+@import "tailwindcss";
+
+:root {
+  --bg: #030712;
+  --surface: #0d1117;
+  --surface2: #161b22;
+  --border: #21262d;
+  --border-glow: #30d158;
+  --text: #e6edf3;
+  --muted: #7d8590;
+  --accent: #30d158;
+  --accent2: #58a6ff;
+  --accent3: #ff6b6b;
+  --amber: #f0c040;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Syne', sans-serif;
+  overflow-x: hidden;
+}
+
+.mono { font-family: 'Space Mono', monospace; }
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 255, 88, 0.012) 2px,
+    rgba(0, 255, 88, 0.012) 4px
+  );
+  pointer-events: none;
+  z-index: 9999;
+}
+
+.grid-bg {
+  background-image:
+    linear-gradient(rgba(48, 209, 88, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(48, 209, 88, 0.04) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+.glow-text { text-shadow: 0 0 20px rgba(48, 209, 88, 0.5); }
+.glow-border { box-shadow: 0 0 0 1px var(--accent), 0 0 20px rgba(48, 209, 88, 0.15); }
+.glow-border-blue { box-shadow: 0 0 0 1px var(--accent2), 0 0 20px rgba(88, 166, 255, 0.15); }
+.glow-border-red { box-shadow: 0 0 0 1px var(--accent3), 0 0 20px rgba(255, 107, 107, 0.15); }
+
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 2px; }
+
+.section { padding: 6rem 0; }
