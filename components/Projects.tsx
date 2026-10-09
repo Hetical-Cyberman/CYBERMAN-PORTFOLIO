@@ -1,42 +1,56 @@
 "use client";
-import { ExternalLink, GitFork, Shield, Brain, BarChart3, Code2 } from "lucide-react";
+
+const ShieldIcon = () => (
+  <svg viewBox="0 0 24 24" width={16} height={16} fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+    <path d="M12 3l7 3v6c0 4.5-2.9 8.7-7 10-4.1-1.3-7-5.5-7-10V6l7-3z" />
+    <path d="M9.5 12.5l1.5 1.5 3.5-4" />
+  </svg>
+);
+
+const CodeIcon = () => (
+  <svg viewBox="0 0 24 24" width={16} height={16} fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+    <path d="M8 8L4 12l4 4" />
+    <path d="M16 8l4 4-4 4" />
+    <path d="M14 4l-4 16" />
+  </svg>
+);
+
+const GitForkIcon = () => (
+  <svg viewBox="0 0 24 24" width={14} height={14} fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+    <circle cx={6} cy={5} r={2.5} />
+    <circle cx={18} cy={5} r={2.5} />
+    <circle cx={12} cy={19} r={2.5} />
+    <path d="M8.5 6.5v5.5c0 1.5 1.5 3 3.5 3s3.5-1.5 3.5-3V6.5" />
+  </svg>
+);
 
 const projects = [
   {
-    tag: "Cybersecurity",
-    icon: <Shield size={16} />,
+    tag: "Full-stack · PHP",
+    icon: <ShieldIcon />,
     color: "var(--accent3)",
-    title: "Network Vulnerability Scanner",
-    description: "A Python-based tool for automated network reconnaissance and vulnerability assessment. Performs port scanning, service fingerprinting, and CVE matching against identified services.",
-    stack: ["Python", "Nmap", "Shodan API", "SQLite"],
-    links: { github: "#" },
+    title: "QR Event Check-in System",
+    description: "Parents self-register and receive a personal QR code on screen and as a PDF. Staff scan it at the gate to verify and log attendance. Built for Redeemers International Group of Schools.",
+    stack: ["PHP", "MySQL 8.4", "PDO", "Aiven", "Pixl"],
+    links: { github: "https://github.com/Hetical-Cyberman/SCHOOL-EVENT-ACCESS-USING-A-QR-CODE" },
   },
   {
-    tag: "AI Engineering",
-    icon: <Brain size={16} />,
+    tag: "Python · React",
+    icon: <CodeIcon />,
     color: "var(--accent2)",
-    title: "AI Skill Builder (Claude API)",
-    description: "An intelligent workflow engine for constructing, evaluating, and optimizing AI skills within Claude.ai projects. Features structured prompting, eval harness, and performance benchmarking.",
-    stack: ["Python", "Anthropic API", "Claude", "Markdown DSL"],
-    links: { github: "#" },
+    title: "ATM Prototype with Secure Web UI",
+    description: "Extended a Python ATM prototype with a React terminal-style interface, then closed security gaps with admin access control, account lockout, and daily withdrawal limit logic.",
+    stack: ["Python", "React", "JSX"],
+    links: { github: "" },
   },
   {
-    tag: "Data Science",
-    icon: <BarChart3 size={16} />,
+    tag: "Coming soon",
+    icon: <ShieldIcon />,
     color: "var(--amber)",
-    title: "Predictive Analytics Dashboard",
-    description: "End-to-end data pipeline and interactive dashboard for statistical modelling and visualization of large-scale datasets. Includes regression, classification, and cluster analysis modules.",
-    stack: ["Python", "Pandas", "Scikit-learn", "Plotly", "Streamlit"],
-    links: { github: "#" },
-  },
-  {
-    tag: "Python Dev",
-    icon: <Code2 size={16} />,
-    color: "var(--accent)",
-    title: "Penetration Testing Toolkit",
-    description: "Modular offensive security toolkit for authorized penetration testing engagements. Includes payload generation, privilege escalation helpers, and automated report generation.",
-    stack: ["Python", "Metasploit API", "Burp Suite", "Linux"],
-    links: { github: "#" },
+    title: "More work coming soon",
+    description: "This project slot is reserved for the next project you share.",
+    stack: [],
+    links: { github: "" },
   },
 ];
 
@@ -51,7 +65,7 @@ export default function Projects() {
           Selected <span style={{ color: "var(--accent)" }}>Work</span>
         </h2>
         <p style={{ color: "var(--muted)", marginBottom: "3rem", maxWidth: 500, lineHeight: 1.7 }}>
-          A cross-domain selection of builds — from offensive security tools to AI-powered systems and data pipelines.
+          Real projects spanning event check-in and secure financial interfaces.
         </p>
 
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "1.5rem" }}>
@@ -89,7 +103,7 @@ export default function Projects() {
               </div>
 
               <div style={{ display: "flex", gap: "1rem" }}>
-                <a href={p.links.github} style={{
+                {p.links.github && <a href={p.links.github} target="_blank" rel="noopener noreferrer" style={{
                   display: "inline-flex", alignItems: "center", gap: 5, color: "var(--muted)",
                   textDecoration: "none", fontSize: 13, fontFamily: "'Space Mono', monospace",
                   transition: "color 0.2s",
@@ -97,15 +111,15 @@ export default function Projects() {
                   onMouseEnter={e => (e.currentTarget.style.color = p.color)}
                   onMouseLeave={e => (e.currentTarget.style.color = "var(--muted)")}
                 >
-                  <GitFork size={14} /> GitHub
-                </a>
+                  <GitForkIcon /> GitHub
+                </a>}
               </div>
             </div>
           ))}
         </div>
 
         <p style={{ marginTop: "2rem", fontFamily: "'Space Mono', monospace", fontSize: 12, color: "var(--muted)" }}>
-          * Some projects are private. Links will be updated as repos go public.
+          * The third project slot is reserved for the next project.
         </p>
       </div>
     </section>
