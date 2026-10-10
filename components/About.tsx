@@ -1,5 +1,7 @@
 "use client";
 
+import Image from "next/image";
+
 export default function About() {
   return (
     <section id="about" className="section" style={{ padding: "6rem 2rem" }}>
@@ -25,19 +27,30 @@ export default function About() {
                   whoami.sh
                 </span>
               </div>
-              <div style={{ padding: "1.5rem", fontFamily: "'Space Mono', monospace", fontSize: 13, lineHeight: 2 }}>
-                <p style={{ color: "var(--accent)" }}>$ whoami</p>
-                <p style={{ color: "var(--text)" }}>Opara Bright // Cyberman</p>
-                <br />
-                <p style={{ color: "var(--accent)" }}>$ cat location.txt</p>
-                <p style={{ color: "var(--text)" }}>Port Harcourt, Rivers State, Nigeria</p>
-                <br />
-                <p style={{ color: "var(--accent)" }}>$ cat certifications.txt</p>
-                <p style={{ color: "var(--accent2)" }}>✓ ICIP OPSWAT (Active)</p>
-                <p style={{ color: "var(--muted)" }}>⟳ CEH — In Progress</p>
-                <br />
-                <p style={{ color: "var(--accent)" }}>$ cat status.txt</p>
-                <p style={{ color: "var(--accent)" }}>AVAILABLE_FOR_HIRE=true</p>
+              <div className="about-terminal-content">
+                <div className="about-terminal-details">
+                  <p style={{ color: "var(--accent)" }}>$ whoami</p>
+                  <p style={{ color: "var(--text)" }}>Opara Bright // Cyberman</p>
+                  <br />
+                  <p style={{ color: "var(--accent)" }}>$ cat location.txt</p>
+                  <p style={{ color: "var(--text)" }}>Federal University of Technology Owerri, Imo State, Nigeria</p>
+                  <br />
+                  <p style={{ color: "var(--accent)" }}>$ cat certifications.txt</p>
+                  <p style={{ color: "var(--accent2)" }}>✓ ICIP OPSWAT (Active)</p>
+                  <p style={{ color: "var(--muted)" }}>⟳ CEH — In Progress</p>
+                  <br />
+                  <p style={{ color: "var(--accent)" }}>$ cat status.txt</p>
+                  <p style={{ color: "var(--accent)" }}>AVAILABLE_FOR_HIRE=true</p>
+                </div>
+                <div className="about-profile-frame">
+                  <Image
+                    src="/opara-bright-profile.jpg"
+                    alt="Opara Bright"
+                    fill
+                    sizes="(max-width: 480px) 128px, 150px"
+                    style={{ objectFit: "cover", objectPosition: "center top" }}
+                  />
+                </div>
               </div>
             </div>
           </div>
