@@ -1,5 +1,7 @@
 "use client";
 
+import Image from "next/image";
+
 const ShieldIcon = () => (
   <svg viewBox="0 0 24 24" width={16} height={16} fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
     <path d="M12 3l7 3v6c0 4.5-2.9 8.7-7 10-4.1-1.3-7-5.5-7-10V6l7-3z" />
@@ -32,7 +34,11 @@ const projects = [
     title: "QR Event Check-in System",
     description: "Parents self-register and receive a personal QR code on screen and as a PDF. Staff scan it at the gate to verify and log attendance. Built for Redeemers International Group of Schools.",
     stack: ["PHP", "MySQL 8.4", "PDO", "Aiven", "Pixl"],
-    links: { github: "https://github.com/Hetical-Cyberman/SCHOOL-EVENT-ACCESS-USING-A-QR-CODE" },
+    image: "/projects/qr-checkin-homepage.jpg",
+    links: {
+      github: "https://github.com/Hetical-Cyberman/SCHOOL-EVENT-ACCESS-USING-A-QR-CODE",
+      preview: "https://redeemers-group-of-schools.pxxl.run/",
+    },
   },
   {
     tag: "Python · React",
@@ -41,7 +47,8 @@ const projects = [
     title: "ATM Prototype with Secure Web UI",
     description: "Extended a Python ATM prototype with a React terminal-style interface, then closed security gaps with admin access control, account lockout, and daily withdrawal limit logic.",
     stack: ["Python", "React", "JSX"],
-    links: { github: "" },
+    image: "",
+    links: { github: "", preview: "" },
   },
   {
     tag: "Coming soon",
@@ -50,7 +57,8 @@ const projects = [
     title: "More work coming soon",
     description: "This project slot is reserved for the next project you share.",
     stack: [],
-    links: { github: "" },
+    image: "",
+    links: { github: "", preview: "" },
   },
 ];
 
@@ -78,6 +86,19 @@ export default function Projects() {
               onMouseEnter={e => { const el = e.currentTarget as HTMLElement; el.style.borderColor = p.color; el.style.transform = "translateY(-4px)"; }}
               onMouseLeave={e => { const el = e.currentTarget as HTMLElement; el.style.borderColor = "var(--border)"; el.style.transform = "translateY(0)"; }}
             >
+              {p.image && p.links.preview && <a href={p.links.preview} target="_blank" rel="noopener noreferrer" aria-label={`Open the live ${p.title} site`} style={{
+                display: "block", overflow: "hidden", margin: "-1.75rem -1.75rem 1.5rem",
+                borderRadius: "7px 7px 0 0", lineHeight: 0,
+              }}>
+                <Image
+                  src={p.image}
+                  alt={`${p.title} homepage preview`}
+                  width={1352}
+                  height={535}
+                  loading="lazy"
+                  style={{ width: "100%", height: "auto", display: "block" }}
+                />
+              </a>}
               <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: "1.25rem" }}>
                 <span style={{
                   display: "inline-flex", alignItems: "center", gap: 5, color: p.color,
@@ -112,6 +133,16 @@ export default function Projects() {
                   onMouseLeave={e => (e.currentTarget.style.color = "var(--muted)")}
                 >
                   <GitForkIcon /> GitHub
+                </a>}
+                {p.links.preview && <a href={p.links.preview} target="_blank" rel="noopener noreferrer" style={{
+                  display: "inline-flex", alignItems: "center", gap: 5, color: p.color,
+                  textDecoration: "none", fontSize: 13, fontFamily: "'Space Mono', monospace",
+                  transition: "color 0.2s",
+                }}
+                  onMouseEnter={e => (e.currentTarget.style.color = "var(--text)")}
+                  onMouseLeave={e => (e.currentTarget.style.color = p.color)}
+                >
+                  Preview Site ↗
                 </a>}
               </div>
             </div>
