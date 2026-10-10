@@ -1,16 +1,7 @@
 "use client";
-import { Mail, MapPin, GitFork, Link2, Send } from "lucide-react";
-import { useState } from "react";
+import { Mail, MapPin, GitFork, Link2, Send, MessageCircle, Phone } from "lucide-react";
 
 export default function Contact() {
-  const [copied, setCopied] = useState(false);
-
-  const copyEmail = () => {
-    navigator.clipboard.writeText("opara.bright@email.com");
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
-  };
-
   return (
     <section id="contact" className="section" style={{ padding: "6rem 2rem" }}>
       <div style={{ maxWidth: 1100, margin: "0 auto" }}>
@@ -36,16 +27,14 @@ export default function Contact() {
                 <MapPin size={20} color="var(--accent)" />
                 <div>
                   <p style={{ fontSize: 12, color: "var(--muted)", fontFamily: "'Space Mono', monospace", letterSpacing: 1 }}>LOCATION</p>
-                  <p style={{ color: "var(--text)", fontWeight: 600 }}>Port Harcourt, Nigeria</p>
+                  <p style={{ color: "var(--text)", fontWeight: 600 }}>Federal University of Technology Owerri, Imo State, Nigeria</p>
                 </div>
               </div>
 
-              <div
-                onClick={copyEmail}
-                style={{
+              <a href="mailto:oparauchenna57@gmail.com" style={{
                   display: "flex", alignItems: "center", gap: 14,
                   background: "var(--surface)", border: "1px solid var(--border)",
-                  borderRadius: 8, padding: "1.25rem", cursor: "pointer",
+                  borderRadius: 8, padding: "1.25rem", textDecoration: "none",
                   transition: "border-color 0.2s",
                 }}
                 onMouseEnter={e => (e.currentTarget.style.borderColor = "var(--accent)")}
@@ -53,17 +42,51 @@ export default function Contact() {
               >
                 <Mail size={20} color="var(--accent2)" />
                 <div>
-                  <p style={{ fontSize: 12, color: "var(--muted)", fontFamily: "'Space Mono', monospace", letterSpacing: 1 }}>EMAIL {copied ? "✓ COPIED" : "(click to copy)"}</p>
-                  <p style={{ color: "var(--text)", fontWeight: 600 }}>opara.bright@email.com</p>
+                  <p style={{ fontSize: 12, color: "var(--muted)", fontFamily: "'Space Mono', monospace", letterSpacing: 1 }}>EMAIL</p>
+                  <p style={{ color: "var(--text)", fontWeight: 600 }}>oparauchenna57@gmail.com</p>
                 </div>
+              </a>
+
+              <div style={{ display: "flex", flexDirection: "column", gap: "1.25rem" }}>
+                <a href="https://wa.me/2349026815462" target="_blank" rel="noopener noreferrer" style={{
+                  display: "flex", alignItems: "center", gap: 14,
+                  background: "var(--surface)", border: "1px solid var(--border)",
+                  borderRadius: 8, padding: "1.25rem", textDecoration: "none",
+                  transition: "border-color 0.2s",
+                }}
+                  onMouseEnter={e => (e.currentTarget.style.borderColor = "var(--accent)")}
+                  onMouseLeave={e => (e.currentTarget.style.borderColor = "var(--border)")}
+                >
+                  <MessageCircle size={20} color="var(--accent)" />
+                  <div>
+                    <p style={{ fontSize: 12, color: "var(--muted)", fontFamily: "'Space Mono', monospace", letterSpacing: 1 }}>WHATSAPP</p>
+                    <p style={{ color: "var(--text)", fontWeight: 600 }}>09026815462</p>
+                  </div>
+                </a>
+
+                <a href="tel:+2349073342199" style={{
+                  display: "flex", alignItems: "center", gap: 14,
+                  background: "var(--surface)", border: "1px solid var(--border)",
+                  borderRadius: 8, padding: "1.25rem", textDecoration: "none",
+                  transition: "border-color 0.2s",
+                }}
+                  onMouseEnter={e => (e.currentTarget.style.borderColor = "var(--accent)")}
+                  onMouseLeave={e => (e.currentTarget.style.borderColor = "var(--border)")}
+                >
+                  <Phone size={20} color="var(--accent2)" />
+                  <div>
+                    <p style={{ fontSize: 12, color: "var(--muted)", fontFamily: "'Space Mono', monospace", letterSpacing: 1 }}>PHONE</p>
+                    <p style={{ color: "var(--text)", fontWeight: 600 }}>09073342199</p>
+                  </div>
+                </a>
               </div>
 
               <div style={{ display: "flex", gap: "1rem" }}>
                 {[
-                  { href: "#", icon: <GitFork size={20} />, label: "GitHub" },
-                  { href: "#", icon: <Link2 size={20} />, label: "LinkedIn" },
+                  { href: "https://github.com/Hetical-Cyberman", icon: <GitFork size={20} />, label: "GitHub" },
+                  { href: "https://www.linkedin.com/in/opara-bright-70a7533a4/?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3Bw3pVoN2hTgWUec4UZ98Pcw%3D%3D", icon: <Link2 size={20} />, label: "LinkedIn" },
                 ].map(s => (
-                  <a key={s.label} href={s.href} style={{
+                  <a key={s.label} href={s.href} target="_blank" rel="noopener noreferrer" style={{
                     flex: 1, display: "flex", alignItems: "center", justifyContent: "center", gap: 8,
                     background: "var(--surface)", border: "1px solid var(--border)",
                     borderRadius: 8, padding: "1rem", color: "var(--muted)",
