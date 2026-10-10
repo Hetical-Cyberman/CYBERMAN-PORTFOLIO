@@ -76,7 +76,7 @@ export default function Contact() {
                   <Phone size={20} color="var(--accent2)" />
                   <div>
                     <p style={{ fontSize: 12, color: "var(--muted)", fontFamily: "'Space Mono', monospace", letterSpacing: 1 }}>PHONE</p>
-                    <p style={{ color: "var(--text)", fontWeight: 600 }}>09073342199</p>
+                    <p style={{ color: "var(--text)", fontWeight: 600 }}>09073343199</p>
                   </div>
                 </a>
               </div>
