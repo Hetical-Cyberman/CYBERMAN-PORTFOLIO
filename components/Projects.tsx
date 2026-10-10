@@ -41,12 +41,12 @@ const projects = [
     },
   },
   {
-    tag: "Python · React",
+    tag: "Voice · Desktop AI",
     icon: <CodeIcon />,
-    color: "var(--accent2)",
-    title: "ATM Prototype with Secure Web UI",
-    description: "Extended a Python ATM prototype with a React terminal-style interface, then closed security gaps with admin access control, account lockout, and daily withdrawal limit logic.",
-    stack: ["Python", "React", "JSX"],
+    color: "var(--accent)",
+    title: "JARVIS-Inspired PC Assistant",
+    description: "A voice-activated assistant built for PC. It uses speech-to-text and text-to-speech to carry out tasks, supports online and offline modes, and can perform actions with elevated or administrator-level access.",
+    stack: ["Voice activated", "STT + TTS", "Online + offline", "Admin-level actions"],
     image: "",
     links: { github: "", preview: "" },
   },
@@ -54,8 +54,8 @@ const projects = [
     tag: "Coming soon",
     icon: <ShieldIcon />,
     color: "var(--amber)",
-    title: "More work coming soon",
-    description: "This project slot is reserved for the next project you share.",
+    title: "ATM Prototype with Secure Web UI",
+    description: "Project details coming soon.",
     stack: [],
     image: "",
     links: { github: "", preview: "" },
@@ -73,7 +73,7 @@ export default function Projects() {
           Selected <span style={{ color: "var(--accent)" }}>Work</span>
         </h2>
         <p style={{ color: "var(--muted)", marginBottom: "3rem", maxWidth: 500, lineHeight: 1.7 }}>
-          Real projects spanning event check-in and secure financial interfaces.
+          Real projects in event access, secure interfaces, and voice-driven PC automation.
         </p>
 
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "1.5rem" }}>
@@ -150,7 +150,7 @@ export default function Projects() {
         </div>
 
         <p style={{ marginTop: "2rem", fontFamily: "'Space Mono', monospace", fontSize: 12, color: "var(--muted)" }}>
-          * The third project slot is reserved for the next project.
+          * ATM Prototype details coming soon.
         </p>
       </div>
     </section>
